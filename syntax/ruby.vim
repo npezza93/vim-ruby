@@ -267,7 +267,6 @@ if !exists("g:use_tree_sitter") || expand('%:e') != 'rb'
     exe 'SynFold ''%'' syn region rubyString matchgroup=rubyPercentStringDelimiter start="\V%w' . s:delimiter . '" end="\V' . s:delimiter . '" skip="\V\\\\\|\\' . s:delimiter . '" contains=rubyBackslashEscape,rubySpaceEscape,' . s:group . ' nextgroup=@rubyModifier skipwhite'
     exe 'SynFold ''%'' syn region rubySymbol matchgroup=rubyPercentSymbolDelimiter start="\V%s' . s:delimiter . '" end="\V' . s:delimiter . '" skip="\V\\\\\|\\' . s:delimiter . '" contains=rubyBackslashEscape,'		 . s:group . ' nextgroup=@rubyModifier skipwhite'
     exe 'SynFold ''%'' syn region rubySymbol matchgroup=rubyPercentSymbolDelimiter start="\V%i' . s:delimiter . '" end="\V' . s:delimiter . '" skip="\V\\\\\|\\' . s:delimiter . '" contains=rubyBackslashEscape,rubySpaceEscape,' . s:group . ' nextgroup=@rubyModifier skipwhite'
-    exe 'hi def link ' . s:group . ' rubyStringEscape'
   endfor
 
   unlet s:delimiter s:group s:names
@@ -476,126 +475,6 @@ if !exists("g:use_tree_sitter") || expand('%:e') != 'rb'
 
   " __END__ Directive {{{1
   SynFold '__END__' syn region rubyData matchgroup=rubyDataDirective start="^__END__$" end="\%$"
-
-  " Default Highlighting {{{1
-  if !exists("g:use_tree_sitter") || expand('%:e') != 'rb'
-    hi def link rubyClass			rubyDefine
-    hi def link rubyModule			rubyDefine
-    hi def link rubyExceptionHandler2	rubyDefine
-    hi def link rubyDefine			Define
-    hi def link rubyAccess			rubyMacro
-    hi def link rubyAttribute		rubyMacro
-    hi def link rubyMacro			Macro
-    hi def link rubyMethodName		rubyFunction
-    hi def link rubyFunction		Function
-    hi def link rubyConditional		Conditional
-    hi def link rubyConditionalModifier	rubyConditional
-    hi def link rubyExceptionHandler	rubyConditional
-    hi def link rubyRescueModifier		rubyExceptionHandler
-    hi def link rubyRepeat			Repeat
-    hi def link rubyRepeatModifier		rubyRepeat
-    hi def link rubyOptionalDo		rubyRepeat
-    hi def link rubyControl			Statement
-    hi def link rubyInclude			Include
-    hi def link rubyInteger			Number
-    hi def link rubyCharacter		Character
-    hi def link rubyFloat			Float
-    hi def link rubyBoolean			Boolean
-    hi def link rubyException		Exception
-    if !exists("ruby_no_identifiers")
-      hi def link rubyIdentifier		Identifier
-    else
-      hi def link rubyIdentifier		NONE
-    endif
-    hi def link rubyClassVariable		rubyIdentifier
-    hi def link rubyConstant		Type
-    hi def link rubyClassName		rubyConstant
-    hi def link rubyModuleName		rubyConstant
-    hi def link rubyGlobalVariable		rubyIdentifier
-    hi def link rubyInstanceVariable	rubyIdentifier
-    hi def link rubyPredefinedIdentifier	rubyIdentifier
-    hi def link rubyPredefinedConstant	rubyPredefinedIdentifier
-    hi def link rubyPredefinedVariable	rubyPredefinedIdentifier
-    hi def link rubySymbol			Constant
-    hi def link rubyKeyword			Keyword
-
-    hi def link rubyOperator		Operator
-    hi def link rubyDefinedOperator		rubyOperator
-    hi def link rubyEnglishBooleanOperator	rubyOperator
-    if exists("ruby_operators")
-      hi def link rubyTernaryOperator	rubyOperator
-      hi def link rubyArithmeticOperator	rubyOperator
-      hi def link rubyComparisonOperator	rubyOperator
-      hi def link rubyBitwiseOperator	rubyOperator
-      hi def link rubyBooleanOperator	rubyOperator
-      hi def link rubyRangeOperator		rubyOperator
-      hi def link rubyAssignmentOperator	rubyOperator
-      hi def link rubyEqualityOperator	rubyOperator
-    endif
-
-    if exists("ruby_pseudo_operators")
-      hi def link rubyPseudoOperator	Special
-      hi def link rubyDotOperator		rubyPseudoOperator
-      hi def link rubyScopeOperator		rubyPseudoOperator
-      hi def link rubySuperClassOperator	rubyPseudoOperator
-      hi def link rubyEigenClassOperator	rubyPseudoOperator
-      hi def link rubyLambdaOperator	rubyPseudoOperator
-      hi def link rubyDoubleSplatOperator	rubyPseudoOperator
-      hi def link rubySplatOperator		rubyPseudoOperator
-      hi def link rubyProcOperator		rubyPseudoOperator
-    endif
-
-    hi def link rubyBeginEnd		Statement
-    hi def link rubyEval			Statement
-    hi def link rubyPseudoVariable		Constant
-    hi def link rubyCapitalizedMethod	NONE
-
-    hi def link rubyComment			Comment
-    hi def link rubyEncoding		Constant
-    hi def link rubyMagicComment		SpecialComment
-    hi def link rubyData			Comment
-    hi def link rubyDataDirective		Delimiter
-    hi def link rubyDocumentation		Comment
-    hi def link rubyTodo			Todo
-
-    hi def link rubyBackslashEscape		rubyStringEscape
-    hi def link rubyQuoteEscape		rubyStringEscape
-    hi def link rubySpaceEscape		rubyStringEscape
-    hi def link rubyParenthesisEscape	rubyStringEscape
-    hi def link rubyCurlyBraceEscape	rubyStringEscape
-    hi def link rubyAngleBracketEscape	rubyStringEscape
-    hi def link rubySquareBracketEscape	rubyStringEscape
-    hi def link rubyStringEscape		Special
-
-    hi def link rubyInterpolationDelimiter	Delimiter
-    hi def link rubySharpBang		PreProc
-    hi def link rubyStringDelimiter		Delimiter
-    hi def link rubyHeredocDelimiter	rubyStringDelimiter
-    hi def link rubyPercentRegexpDelimiter	rubyRegexpDelimiter
-    hi def link rubyPercentStringDelimiter	rubyStringDelimiter
-    hi def link rubyPercentSymbolDelimiter	rubySymbolDelimiter
-    hi def link rubyDoubleQuoteSymbolDelimiter rubySymbolDelimiter
-    hi def link rubySingleQuoteSymbolDelimiter rubySymbolDelimiter
-    hi def link rubyRegexpDelimiter		rubyStringDelimiter
-    hi def link rubySymbolDelimiter		rubySymbol
-    hi def link rubyString			String
-    hi def link rubyRegexpEscape		rubyRegexpSpecial
-    hi def link rubyRegexpQuantifier	rubyRegexpSpecial
-    hi def link rubyRegexpAnchor		rubyRegexpSpecial
-    hi def link rubyRegexpDot		rubyRegexpCharClass
-    hi def link rubyRegexpCharClass		rubyRegexpSpecial
-    hi def link rubyRegexpIntersection	rubyRegexpSpecial
-    hi def link rubyRegexpSpecial		Special
-    hi def link rubyRegexpComment		Comment
-    hi def link rubyRegexp			rubyString
-
-    hi def link rubyError			Error
-    if exists("ruby_line_continuation_error")
-      hi def link rubyUselessLineContinuation rubyError
-    endif
-    hi def link rubyGlobalVariableError	rubyError
-    hi def link rubySpaceError		rubyError
-  endif
 endif
 
 " Postscript {{{1
