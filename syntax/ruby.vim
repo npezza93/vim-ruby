@@ -64,7 +64,7 @@ endfunction
 
 com! -nargs=* SynFold call s:run_syntax_fold(<q-args>)
 
-if !exists("g:use_tree_sitter") || expand('%:e') != 'rb'
+if !exists("g:use_tree_sitter")
   " Not-Top Cluster {{{1
   syn cluster rubyNotTop contains=@rubyCommentNotTop,@rubyStringNotTop,@rubyRegexpSpecial,@rubyDeclaration,@rubyExceptionHandler,@rubyClassOperator,rubyConditional,rubyModuleName,rubyClassName,rubySymbolDelimiter,rubyDoubleQuoteSymbolDelimiter,rubySingleQuoteSymbolDelimiter,rubyParentheses,@Spell
 
