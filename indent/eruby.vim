@@ -4,7 +4,7 @@
 " URL:			https://github.com/vim-ruby/vim-ruby
 " Release Coordinator:	Doug Kearns <dougkearns@gmail.com>
 
-if exists("b:did_indent")
+if exists("b:did_indent") || exists("g:use_tree_sitter")
   finish
 endif
 
