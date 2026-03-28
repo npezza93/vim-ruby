@@ -37,9 +37,9 @@ setlocal nosmartindent
 
 " Now, set up our indentation expression and keys that trigger it.
 setlocal indentexpr=GetRubyIndent(v:lnum)
-setlocal indentkeys=0{,0},0),0],!^F,o,O,e,:,.
-setlocal indentkeys+==end,=else,=elsif,=when,=in\ ,=ensure,=rescue,==begin,==end
-setlocal indentkeys+==private,=protected,=public
+" setlocal indentkeys=0{,0},0),0],!^F,o,O,e,:
+" setlocal indentkeys+==end,=else,=elsif,=when,=in\ ,=ensure,=rescue,==begin,==end
+" setlocal indentkeys+==private,=protected,=public
 
 let b:undo_indent = "setlocal indentexpr< indentkeys< smartindent<"
 

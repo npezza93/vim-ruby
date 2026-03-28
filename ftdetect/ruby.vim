@@ -15,7 +15,7 @@ endfunc
 " }}}
 
 " HTML with Ruby - eRuby
-au BufNewFile,BufRead *.erb,*.rhtml				call s:setf('eruby')
+au BufNewFile,BufRead *turbo_stream.erb,*html.erb,*.rhtml				call s:setf('eruby')
 
 " Interactive Ruby shell
 au BufNewFile,BufRead .irbrc,irbrc				call s:setf('ruby')

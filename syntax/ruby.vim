@@ -476,6 +476,7 @@ syn match rubySymbol "\"\%(\\.\|[^\"]\)*\"::\@!"he=e-1 contains=@rubyStringSpeci
 SynFold '__END__' syn region rubyData matchgroup=rubyDataDirective start="^__END__$" end="\%$"
 
 " Default Highlighting {{{1
+if !exists("g:use_tree_sitter")
 hi def link rubyClass			rubyDefine
 hi def link rubyModule			rubyDefine
 hi def link rubyExceptionHandler2	rubyDefine
@@ -592,6 +593,7 @@ if exists("ruby_line_continuation_error")
 endif
 hi def link rubyGlobalVariableError	rubyError
 hi def link rubySpaceError		rubyError
+endif
 
 " Postscript {{{1
 let b:current_syntax = "ruby"
