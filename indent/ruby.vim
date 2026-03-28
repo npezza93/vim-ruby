@@ -3,7 +3,6 @@
 " Maintainer:		Andrew Radev <andrey.radev@gmail.com>
 " Previous Maintainer:	Nikolai Weibull <now at bitwi.se>
 " URL:			https://github.com/vim-ruby/vim-ruby
-" Release Coordinator:	Doug Kearns <dougkearns@gmail.com>
 
 " 0. Initialization {{{1
 " =================
@@ -39,8 +38,10 @@ setlocal nosmartindent
 " Now, set up our indentation expression and keys that trigger it.
 setlocal indentexpr=GetRubyIndent(v:lnum)
 " setlocal indentkeys=0{,0},0),0],!^F,o,O,e,:
-" setlocal indentkeys+==end,=else,=elsif,=when,=in,=ensure,=rescue,==begin,==end
+" setlocal indentkeys+==end,=else,=elsif,=when,=in\ ,=ensure,=rescue,==begin,==end
 " setlocal indentkeys+==private,=protected,=public
+
+let b:undo_indent = "setlocal indentexpr< indentkeys< smartindent<"
 
 " Only define the function once.
 if exists("*GetRubyIndent")
